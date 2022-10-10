@@ -6,7 +6,9 @@
     </div>
 
 <div>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat quia ex unde molestias dolores voluptas mollitia, deserunt nesciunt aperiam eaque pariatur cum aut ut dolorum? Enim sunt perferendis animi amet.</p>
+ <h1>Como está o seu progresso hoje?</h1>
+ <CronogramResume></CronogramResume>
+ 
 </div>
 
   </div>
@@ -15,6 +17,8 @@
 
 <script setup>
 import CardsMenu from "@/components/CardsMenu.vue";
+import CronogramResume from "@/components/CronogramResume.vue";
+
 </script>
 
 <style scoped>
