@@ -1,7 +1,9 @@
-export const createRoute = (path, component, routeParams = {}) => {
+export const createRoute = (path, component, routerView, routeParams = {}) => {
     const route = {
         path,
-        component: () => component
+        components: {
+            [routerView]: () => component
+        }
     }
 
     return Object.assign(route, routeParams)

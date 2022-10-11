@@ -2,7 +2,7 @@
   <div class="content">
     <MenuComponent></MenuComponent>
     <main>
-      <RouterView v-slot="{ Component }">
+      <RouterView v-slot="{ Component }" name="main">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
         </transition>

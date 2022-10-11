@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <RouterLink to="/"
-      ><img src="../assets/logo-owlrange.svg" alt="logo da owlrange" class="logo"
+    <RouterLink to="/" class="logo-link"
+      ><img src="../assets/logo-owlrange.svg" alt="logo da owlrange"
     /></RouterLink>
     <hr />
     <div class="user">
@@ -73,8 +73,12 @@ nav {
   row-gap: 14px;
 }
 
-.logo {
-  max-width: 142px;
+.logo-link{
+  align-self: center;
+}
+
+.logo-link img {
+  max-width: 150px;
 }
 
 hr {
