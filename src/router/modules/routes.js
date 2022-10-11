@@ -6,9 +6,6 @@ const studentMaterial = createRoute('/material-student', import('../../views/stu
 const studentPerfil = createRoute('/account', import('../../views/studentPerfil.vue'))
 const studentSetting = createRoute('/settings', import('../../views/studentSetting.vue'))
 
-
-
-
 export const useRoutes = () => ([
     {
         path: '/',
