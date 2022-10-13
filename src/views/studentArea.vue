@@ -10,6 +10,7 @@
 <script setup>
 import CardsMenu from "@/components/studentArea/CardsMenu.vue";
 import CronogramResume from "@/components/studentArea/CronogramResume.vue";
+import MaterialsToExpireVue from "@/components/studentArea/MaterialsToExpire.vue";
 import { reactive, markRaw} from "vue";
 
 const state = reactive({
@@ -21,6 +22,10 @@ const state = reactive({
     {
       title: 'Como está o seu progresso hoje?',
       component: markRaw(CronogramResume)
+    }, 
+    {
+      title: 'Atenção aos materiais que você ainda não viu e irão expirar em breve!',
+      component: markRaw(MaterialsToExpireVue)
     }
   ],
 });
@@ -30,7 +35,7 @@ const state = reactive({
 .student-area, article{
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 36px;
 }
 
 article{
