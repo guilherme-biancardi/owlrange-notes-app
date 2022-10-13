@@ -63,6 +63,7 @@ const state = reactive({
 }
 
 nav {
+  position: fixed;
   width: 240px;
   background-color: var(--white);
   padding: 12px 8px;

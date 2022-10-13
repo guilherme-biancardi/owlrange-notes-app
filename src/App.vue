@@ -46,17 +46,15 @@ body {
   color: var(--text);
 }
 
-header {
-  background-color: var(--white);
-  padding: 10px;
-  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
-  z-index: 1;
+*::-webkit-scrollbar-track {
+  background-color: transparent;
 }
-
-header > img {
-  max-width: 130px;
-  object-fit: cover;
-  object-position: center;
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--blue-medium);
+  border-radius: 12px;
 }
 
 .content {
@@ -65,13 +63,16 @@ header > img {
 }
 
 main {
-  width: 100%;
-  max-height: 100%;
+  width: calc(100% - 240px);
+  margin-left: 240px;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: auto;
+  overflow-y: overlay;
+  padding: 32px;
 }
 
 .fade-enter-active,
