@@ -1,129 +1,203 @@
 <template>
   <div class="cronogram-container">
+    <h3 class="date-title">{{ date }}</h3>
     <div>
-      <h3 class="title">Quinta, 08 de set.</h3>
-      <div
-        class="category"
-        v-for="(categoria, index) in state.categorias"
-        :key="index"
-      >
-        <div class="icons">
-          <img :src="categoria.image" :alt="categoria.imageAlt" />
-          <div class="circle"></div>
-          <IconComponent :icon="categoria.icon" :size="24"></IconComponent>
-        </div>
+      <ul class="category-list">
+        <li
+          v-for="(category, index) in state.categories"
+          :key="index"
+          class="category"
+        >
+          <div class="icons">
+            <img
+              src="../../assets/seta.svg"
+              alt="icone de seta inidcando uma categoria"
+            />
+            <div class="circle"></div>
+            <IconComponent
+              :icon="category.icon"
+              :size="category?.size || 18"
+            ></IconComponent>
+          </div>
 
-        <div class="text">
-          <h3>{{ categoria.title }}</h3>
-          <p>{{ categoria.institution }}</p>
-        </div>
+          <div class="category-text">
+            <h3>{{ category.title }}</h3>
+            <p>{{ category.institution }}</p>
+          </div>
 
-        <div>
-          <button class="btn">
-            <span>CONCLUÍDO</span>
-            <img src="../../assets/seta-button.svg" alt="abrir dropdown" />
-          </button>
-        </div>
-      </div>
-
-
-
-
-      
+          <div>
+            <button class="btn-category">
+              <span>{{ buttonProgress[category.status] }}</span>
+              <IconComponent
+                :icon="'mdi-chevron-down'"
+                :size="24"
+              ></IconComponent>
+            </button>
+          </div>
+        </li>
+      </ul>
+      <ProgressBar
+        :size="200"
+        :text="'concluído'"
+        :max="state.categories.length"
+        :progressCount="state.completedProgress"
+      ></ProgressBar>
     </div>
   </div>
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { useApp } from "@/js/app";
+import { computed, onMounted, reactive } from "vue";
 import IconComponent from "../utilities/IconComponent.vue";
+import ProgressBar from "../utilities/ProgressBar.vue";
+
+const { moment } = useApp();
+
+const date = computed(() => moment().locale("pt-br").format("dddd, ll"));
 
 const state = reactive({
-  categorias: [
+  completedProgress: 0,
+  categories: [
     {
-      image: require("../../assets/seta.svg"),
       title: "Organização da Administração Pública",
       institution: "Gran Cursos",
-      imageAlt: "icone ir para categorias",
-      icon: "mdi-video-minus-outline",
+      icon: "mdi-video-outline",
+      size: 22,
+      status: "complete",
     },
     {
-      image: require("../../assets/seta.svg"),
       title: "Princípio da Administração Pública",
       institution: "Qconcursos",
-      imageAlt: "icone ir para categorias",
-      icon: "mdi-export",
+      icon: "mdi-open-in-new",
+      status: "pending",
     },
     {
-      image: require("../../assets/seta.svg"),
       title: "Responsabilidade Civil do Estado",
       institution: "Passei Direto",
-      imageAlt: "icone ir para categorias",
-      icon: "mdi-paperclip",
+      icon: "mdi-link-variant",
+      status: "complete",
     },
     {
-      image: require("../../assets/seta.svg"),
       title: "Controle da Administração Pública",
       institution: "Gran Cursos",
-      imageAlt: "icone ir para categorias",
-      icon: "mdi-paperclip",
+      icon: "mdi-link-variant",
+      status: "complete",
     },
   ],
+});
+
+const buttonProgress = {
+  complete: "concluído",
+  pending: "pendente",
+};
+
+onMounted(() => {
+  state.categories.forEach(({ status }) =>
+    status === "complete" ? state.completedProgress++ : null
+  );
 });
 </script>
 
 <style scoped>
 .cronogram-container {
   display: flex;
-  padding: 24px 12px;
+  flex-direction: column;
+  padding: 32px 36px;
+  background-color: var(--white);
+  row-gap: 48px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.14);
 }
-.title {
-  text-align: center;
+
+.cronogram-container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 24px;
+}
+
+.date-title {
+  align-self: center;
+}
+
+.date-title::first-letter {
+  text-transform: uppercase;
+}
+
 .category {
   display: flex;
   align-items: center;
-  font-family: "Roboto";
   gap: 16px;
-  align-items: center;
-  padding-top: 1.5rem;
-  gap: 100px;
+  justify-content: space-between;
 }
+
+.category-text {
+  display: flex;
+  flex-direction: column;
+  max-width: 29ch;
+  row-gap: 2px;
+}
+
 .category h3 {
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 1.1em;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
 .category p {
   color: #747474;
   font-weight: 300;
+  font-size: 0.95em;
 }
 
 .text {
   width: 360px;
 }
-.circle {
-  background: #ff6b00;
-  border-radius: 50%;
-  width: 14px;
-  height: 14px;
-}
-.btn {
+
+.btn-category {
   display: flex;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
+  min-width: 130px;
   height: 36px;
   border-radius: 8px;
   padding: 4px 8px;
   gap: 4px;
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 600;
-  color: #0007ae;
-  border: 2px solid #0007ae;
+  color: var(--blue);
+  border: 2px solid var(--blue);
   box-shadow: 0px 4.5283px 4.5283px rgba(0, 0, 0, 0.1);
 }
+
+.btn-category span {
+  text-transform: uppercase;
+}
+
 .icons {
   display: flex;
   gap: 20px;
   align-items: center;
+}
+
+.icons img {
+  max-width: 18px;
+}
+
+.circle {
+  background: #ff6b00;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
 }
 </style>

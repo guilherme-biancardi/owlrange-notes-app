@@ -2,8 +2,10 @@
   <div class="card-container">
     <div class="card" v-for="(card, index) in state.cards" :key="index">
       <img :src="card.image" :alt="card.imageAlt" />
-      <h2>{{ card.title }}</h2>
-      <p>{{ card.description }}</p>
+      <div class="card-text">
+        <h2>{{ card.title }}</h2>
+        <p>{{ card.description }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -30,8 +32,7 @@ const state = reactive({
     {
       image: require("../../assets/definir-metas.svg"),
       title: "definir metas",
-      description:
-        "Adicione novas metas ao seu cronograma de estudos",
+      description: "Adicione novas metas ao seu cronograma de estudos",
       imageAlt: "icone definir metas",
     },
     {
@@ -47,56 +48,54 @@ const state = reactive({
 
 <style scoped>
 .card-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 45px;
 }
 
 .card {
+  max-width: 185px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding-top: 12px;
-  height: 240px;
-  width: 160px;
-  margin: 40px;
+  align-items: center;
+  row-gap: 16px;
+  padding: 20px 12px;
   border-radius: 16px;
   background: var(--white);
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.14);
   border: 3px solid transparent;
-  transition: all .1s ease;
+  transition: all 0.1s ease;
 }
 
 .card img {
-  display: block;
-  margin: 0 auto;
   color: #747474;
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
 }
 
 .card:hover {
-  border-color: var(--blue);
+  border-color: var(--blue-medium);
 }
 
-.card h2 {
+.card-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  word-wrap: break-word;
+  row-gap: 12px;
+}
+
+.card-text h2 {
   text-align: center;
-  padding-top: 12px;
-  font-family: Roboto;
   font-size: 1.2em;
   font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: center;
   color: #747474;
   text-transform: uppercase;
+  max-width: 10ch;
 }
-.card p {
-  text-align: center;
-  padding: 12px 16px;
-  font-family: Roboto;
+.card-text p {
   font-size: 0.85em;
   font-weight: 500;
-  line-height: 16px;
-  letter-spacing: 0.015em;
   text-align: center;
   color: #747474;
 }
