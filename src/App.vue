@@ -1,14 +1,13 @@
 <template>
-  <div class="app">
-    <header>
-      <img src="./assets/logo-owlrange.svg" alt="logo da owlrange notes" />
-    </header>
-    <div class="content">
-      <MenuComponent></MenuComponent>
-      <main>
-        <RouterView></RouterView>
-      </main>
-    </div>
+  <div class="content">
+    <MenuComponent></MenuComponent>
+    <main>
+      <RouterView v-slot="{ Component }" name="main">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </RouterView>
+    </main>
   </div>
 </template>
 
@@ -30,50 +29,67 @@ import MenuComponent from "./components/MenuComponent.vue";
   --white: #ffffff;
   --white-light: #f5f5f5;
   --text: #474747;
-  --blue: #0007AE;
+  --blue: #0007ae;
+  --blue-medium: #292fdc;
 }
 
 ul {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.app {
+body {
   background-color: var(--white-light);
   color: var(--text);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
 }
 
-header {
-  background-color: var(--white);
-  padding: 10px;
-  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
-  z-index: 1;
+*::-webkit-scrollbar-track {
+  background-color: transparent;
 }
-
-header > img {
-  max-width: 130px;
-  object-fit: cover;
-  object-position: center;
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--blue-medium);
+  border-radius: 12px;
 }
 
 .content {
   display: flex;
-  flex-grow: 1;
+  height: 100vh;
 }
 
 main {
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 240px);
+  margin-left: 240px;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: auto;
+  overflow-y: overlay;
+  padding: 32px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-from {
+  margin-top: -12px;
+}
+
+.fade-leave-to {
+  margin-top: 8px;
 }
 </style>

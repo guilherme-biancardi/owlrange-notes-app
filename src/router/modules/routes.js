@@ -1,11 +1,13 @@
-import { createRoute } from "./createRoute.js";
-
-const teste = createRoute('/student-area', import('../../views/studentArea.vue'))
+import { studentArea, goalsSchedule, studentMaterial, studentPerfil, studentSetting } from "./mainRoutes.js";
 
 export const useRoutes = () => ([
     {
         path: '/',
         redirect: '/student-area'
     },
-    teste
+    studentArea, 
+    goalsSchedule, 
+    studentMaterial, 
+    studentPerfil, 
+    studentSetting
 ])

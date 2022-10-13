@@ -1,5 +1,9 @@
 <template>
   <nav>
+    <RouterLink to="/" class="logo-link"
+      ><img src="../assets/logo-owlrange.svg" alt="logo da owlrange"
+    /></RouterLink>
+    <hr />
     <div class="user">
       <img src="../assets/user.svg" class="user-photo" />
       <div class="user-text">
@@ -59,11 +63,28 @@ const state = reactive({
 }
 
 nav {
-  width: 230px;
+  position: fixed;
+  width: 240px;
   background-color: var(--white);
-  padding: 20px 8px;
+  padding: 12px 8px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+}
+
+.logo-link{
+  align-self: center;
+}
+
+.logo-link img {
+  max-width: 150px;
+}
+
+hr {
+  border: 1px solid var(--white-light);
+  height: 0;
 }
 
 .user {
@@ -103,7 +124,7 @@ nav {
   row-gap: 18px;
   flex-direction: column;
   justify-content: center;
-  margin-top: 32px;
+  margin-top: 16px;
 }
 
 .menu-list a {
@@ -115,7 +136,7 @@ nav {
   font-weight: 500;
   border-radius: 8px;
   padding: 6px;
-  transition: all .1s ease;
+  transition: all 0.1s ease;
 }
 
 .menu-list a i {
@@ -123,7 +144,7 @@ nav {
 }
 
 .menu-list a:hover {
-  background-color: var(--blue);
+  background-color: var(--blue-medium);
   color: var(--white);
   transform: scale(1.1) translateX(8px);
 }
