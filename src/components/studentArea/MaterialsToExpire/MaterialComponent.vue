@@ -14,14 +14,14 @@
     <span>{{ getDaystoExpire() }}</span>
   </li>
 </template>
-
+ 
 <script setup>
 import IconComponent from "@/components/utilities/IconComponent.vue";
 import { useApp } from "@/js/app";
 import { computed } from "vue";
 
 const { moment } = useApp();
-
+ 
 const date = computed(() => moment().startOf("day"));
 const expireDate = computed(() =>
   moment(props.dateExpire.split("/").reverse().join(""))
