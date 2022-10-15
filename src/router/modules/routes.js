@@ -1,13 +1,13 @@
-import { studentArea, goalsSchedule, studentMaterial, studentPerfil, studentSetting } from "./mainRoutes.js";
+import { appRoute } from "./appRoute.js";
+import { loginRoute } from "./loginRoute.js";
 
 export const useRoutes = () => ([
     {
         path: '/',
-        redirect: '/student-area'
+        redirect: '/app',
+        children: [
+            loginRoute,
+            appRoute
+        ]
     },
-    studentArea, 
-    goalsSchedule, 
-    studentMaterial, 
-    studentPerfil, 
-    studentSetting
 ])
