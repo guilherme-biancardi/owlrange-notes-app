@@ -70,7 +70,7 @@ const state = reactive({
       title: "Princípio da Administração Pública",
       institution: "Qconcursos",
       icon: "mdi-open-in-new",
-      status: "complete",
+      status: "pending",
     },
     {
       title: "Responsabilidade Civil do Estado",

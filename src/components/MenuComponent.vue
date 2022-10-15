@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <RouterLink to="/app" class="logo-link"
+    <RouterLink to="/" class="logo-link"
       ><img src="../assets/logo-owlrange.svg" alt="logo da owlrange"
     /></RouterLink>
     <hr />
@@ -30,27 +30,27 @@ const state = reactive({
   menuItems: [
     {
       icon: "mdi-account-school-outline",
-      route: "student-area",
+      route: "/student-area",
       text: "Área do Estudante",
     },
     {
       icon: "mdi-calendar-blank-outline",
-      route: "goals-schedule",
+      route: "/goals-schedule",
       text: "Cronograma de Metas",
     },
     {
       icon: "mdi-notebook-edit-outline",
-      route: "material-student",
+      route: "/material-student",
       text: "Material do Estudante",
     },
     {
       icon: "mdi-account-outline",
-      route: "account",
+      route: "/account",
       text: "Perfil",
     },
     {
       icon: "mdi-cog-outline",
-      route: "settings",
+      route: "/settings",
       text: "Configurações",
     },
   ],
