@@ -37,7 +37,7 @@ const route = useRoute();
 const currentRoute = computed(() => route.fullPath);
 
 const setButtonSelected = () =>
-  (state.buttonSelected = currentRoute.value === "/login/sign-in" ? 0 : 1);
+  (state.buttonSelected = currentRoute.value === "/sign-in" ? 0 : 1);
 
 watch(currentRoute, setButtonSelected);
 onMounted(setButtonSelected);
@@ -97,7 +97,7 @@ const state = reactive({
   text-align: center;
   border: 3px solid var(--buttons);
   text-transform: capitalize;
-  transition: all .15s ease;
+  transition: all 0.15s ease;
 }
 
 .buttons li > a {
@@ -133,11 +133,12 @@ const state = reactive({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 12px;
+  row-gap: 14px;
   background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 1px 1px 16px 5px rgba(0, 0, 0, 0.02);
   backdrop-filter: blur(8px);
-  padding: 16px 20px;
-  border-radius: 20px;
+  padding: 16px 24px;
+  border-radius: 16px;
 }
 
 .login-image img {
@@ -148,19 +149,42 @@ const state = reactive({
 }
 
 .login-image :is(h2, p) {
+  position: relative;
   padding: 8px 16px;
-  color: white;
-  background: linear-gradient(160deg, var(--blue) 40%, var(--blue-medium));
-  border-radius: 16px;
+  border-radius: 10px;
+}
+
+.login-image :is(h2, p)::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
 }
 
 .login-image h2 {
+  color: white;
+  background: linear-gradient(to right, var(--blue) 40%, var(--blue-medium));
   font-size: 1.25em;
+}
+
+.login-image h2::before {
+  border-top: 17px solid var(--blue);
+  top: 0px;
+  left: -10px;
 }
 
 .login-image p {
   align-self: flex-end;
   font-size: 1.1em;
-  color: #f9f9f9;
+  background: linear-gradient(to right, white 40%, #eee);
+  color: var(--blue);
+}
+
+.login-image p::before {
+  border-bottom: 13px solid #eee;
+  bottom: 0px;
+  right: -11px;
 }
 </style>

@@ -1,13 +1,15 @@
 import { appRoute } from "./appRoute.js";
+import { createRoute } from "./createRoute.js";
+import { forgotRoute } from "./forgotRoute.js";
 import { loginRoute } from "./loginRoute.js";
 
 export const useRoutes = () => ([
     {
         path: '/',
-        redirect: '/app',
         children: [
             loginRoute,
             appRoute
         ]
     },
+    forgotRoute
 ])
