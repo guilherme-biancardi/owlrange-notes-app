@@ -31,17 +31,17 @@
         />
       </div>      
     </div>
-    <h3>Ou encontre nas pastas:</h3>
 
-  
+    <h3 class="search-paste">Ou encontre nas pastas:</h3>
+
+  <MaterialProgress></MaterialProgress>
 
   </div>
 </template>
 
 <script setup>
 import IconComponent from "@/components/utilities/IconComponent.vue";
-// import MaterialProgress from "@/components/studentMaterial.vue/MaterialProgress.vue";
-
+import MaterialProgress from "@/components/studentMaterial.vue/MaterialProgress.vue";
 
 </script>
 
@@ -85,7 +85,7 @@ button > p {
 
 
 .search{
-padding-top: 36px;
+padding: 36px 0px;
 }
 .search-bar {
   background-color: var(--white);
@@ -100,5 +100,8 @@ padding-top: 36px;
   padding: 14px 10px;
   font-size: 1.1em;
   border: none;
+}
+.search-paste {
+  padding-bottom: 36px;
 }
 </style>

@@ -1,17 +1,24 @@
 <template>
-  <li class="material">
+  <li class="material" :style="`border-color: var(--${color})`">
     <div class="material-text">
       <h2>{{ title }}</h2>
-      <p>{{ subtitle }}</p>
+      <div class="material-expire">
+        <p>
+          {{ material.length }}
+          {{ material.length > 1 ? "materiais" : "material" }}
+        </p>
+        <p>{{ dateExpire }}</p>
+      </div>
     </div>
-    <ProgressBar
-      :size="60"
-      :text="'concluído'"
-      :max="state.categories.length"
-      :progressCount="state.completedProgress"
-    >
-    </ProgressBar>
-    <IconComponent :icon="icon" :size="size || 22"></IconComponent>
+    <div class="progress">
+      <ProgressBar
+        size="100"
+        :max="material.length"
+        :progressCount="progress"
+      ></ProgressBar>
+
+      <IconComponent icon="mdi-chevron-down" size="36"></IconComponent>
+    </div>
   </li>
 </template>
 
@@ -21,10 +28,10 @@ import ProgressBar from "@/components/utilities/ProgressBar.vue";
 
 const props = defineProps({
   title: String,
-  numeroMaterials: String,
-  dateExpire: String,
   color: String,
   dateExpire: String,
+  material: [],
+  progress: Number,
 });
 </script>
 
@@ -45,5 +52,18 @@ const props = defineProps({
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.material-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.material-expire {
+  display: flex;
+  gap: 12px;
+}
+.progress {
+  display: flex;
+  gap: 12px;
 }
 </style>
