@@ -1,49 +1,67 @@
 <template>
-  <div>
+  <div class="container">
     <h2>Material de estudo</h2>
 
-    <div>
+    <div class="add-material">
       <h3>Possui um novo material para estudar?</h3>
       <router-link to="/add-material">
-        <button>
+        <button class="btn">
           <icon-component icon="mdi-plus" size="24"></icon-component>
-          ADICIONAR MATERIAL
+          <p>ADICIONAR MATERIAL</p>
         </button>
       </router-link>
     </div>
 
-    <div class="filter">
+    <div>
       <h3>Acesse seus materiais:</h3>
-      <icon-component icon="mdi-filter-outline" size="24"></icon-component>
-      <p>Mostrar Todos</p>
+      <div class="filter">
+        <icon-component icon="mdi-filter-outline" size="24"></icon-component>
+        <p>Mostrar Todos</p>
+      </div>
     </div>
-    <div class="pesquise">
+
+    <div class="search">
       <h3>Pesquise pelo nome:</h3>
-      <div class="search">
+      <div class="search-bar">
         <icon-component icon="mdi-magnify" size="24"></icon-component>
         <input
           type="text"
-          id="txtSearch"
+          class="txtSearch"
           placeholder="Digite o nome do material"
         />
-      </div>
+      </div>      
     </div>
+    <h3>Ou encontre nas pastas:</h3>
+
+  
+
   </div>
 </template>
 
 <script setup>
-import { reactive } from "vue";
 import IconComponent from "@/components/utilities/IconComponent.vue";
+// import MaterialProgress from "@/components/studentMaterial.vue/MaterialProgress.vue";
 
-const state = reactive({});
+
 </script>
 
 <style scoped>
+.container {
+  padding: 12px 28px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-material {
+  padding: 36px 0px;
+}
+
 button {
   background-color: var(--blue);
   color: white;
-  border-radius: 4px;
-  padding: 10px 20px;
+  border-radius: 8px;
+  padding: 12px 24px;
   display: flex;
   column-gap: 8px;
   align-items: center;
@@ -51,27 +69,36 @@ button {
   min-width: 160px;
   cursor: pointer;
   transition: all 0.2s ease;
+  margin: 18px 0px;
 }
 button:hover {
   background-color: var(--blue-medium);
 }
 button > p {
-  font-size: 1.3em;
+  font-size: 1.25em;
+}
+.filter {
+  display: flex;
+  margin: 18px 0px;
+  gap: 10px;
 }
 
-.search {
+
+.search{
+padding-top: 36px;
+}
+.search-bar {
   background-color: var(--white);
   display: flex;
   border-radius: 8px;
-  width: 300px;
+  width: 600px;
   padding-left: 10px;
+  margin: 18px 0px;
 }
 
-#txtSearch {
-  padding-left: 5px;
-  font-style: italic;
-  font-size: 1rem;
+.txtSearch {
+  padding: 14px 10px;
+  font-size: 1.1em;
   border: none;
-  padding: 12px;
 }
 </style>
