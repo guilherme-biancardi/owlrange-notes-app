@@ -4,7 +4,7 @@
 
     <div class="add-material">
       <h3>Possui um novo material para estudar?</h3>
-      <router-link to="/add-material">
+      <router-link to="add-material">
         <button class="btn">
           <icon-component icon="mdi-plus" size="24"></icon-component>
           <p>ADICIONAR MATERIAL</p>
