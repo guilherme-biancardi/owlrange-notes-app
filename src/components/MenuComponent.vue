@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <RouterLink to="/app" class="logo-link"
+    <RouterLink to="student-area" class="logo-link"
       ><img src="../assets/logo-owlrange.svg" alt="logo da owlrange"
     /></RouterLink>
     <hr />

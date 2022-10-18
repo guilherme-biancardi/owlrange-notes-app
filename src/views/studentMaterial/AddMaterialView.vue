@@ -12,7 +12,7 @@
       </button>
     </header>
     <h2>Adicionar material de estudo</h2>
-    <FormAddMaterial></FormAddMaterial>
+    <!-- <FormAddMaterial></FormAddMaterial> -->
   </div>
 </template>
 
@@ -20,7 +20,7 @@
 import { reactive } from "vue";
 import IconComponent from "@/components/utilities/IconComponent.vue";
 import { useRouter } from "vue-router";
-import FormAddMaterial from "../../components/studentMaterial.vue/FormAddMaterial.vue";
+// import FormAddMaterial from "../../components/studentMaterial/FormAddMaterial.vue";
 
 const state = reactive({});
 const router = useRouter()

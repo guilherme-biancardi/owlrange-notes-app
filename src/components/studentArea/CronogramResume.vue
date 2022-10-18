@@ -38,6 +38,7 @@
       </ul>
       <ProgressBar
         :size="200"
+        :textSize="1.3"
         :text="'concluído'"
         :max="state.categories.length"
         :progressCount="state.completedProgress"

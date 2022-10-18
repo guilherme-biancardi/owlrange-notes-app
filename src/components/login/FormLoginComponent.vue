@@ -8,16 +8,21 @@
       :icon="input.icon"
     ></InputLoginComponent>
     <slot></slot>
-    <button type="submit">
-      <p>{{ buttonText }}</p>
-      <IconComponent :icon="'mdi-arrow-right'" :size="22"></IconComponent>
-    </button>
+    <ButtonComponent
+      :text="buttonText"
+      :icon="'mdi-arrow-right'"
+      :type="'submit'"
+      :reverse="true"
+      :borderRadius="24"
+    >
+    </ButtonComponent>
   </form>
 </template>
 
 <script setup>
 import InputLoginComponent from "./InputLoginComponent.vue";
 import IconComponent from "../utilities/IconComponent.vue";
+import ButtonComponent from "../utilities/ButtonComponent.vue";
 
 const emit = defineEmits(["submitForm"]);
 

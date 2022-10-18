@@ -9,6 +9,11 @@
   },
   "dependencies": {
     "@aacassandra/vue3-progressbar": "^1.0.3",
+    "@fullcalendar/bootstrap5": "^5.11.3",
+    "@fullcalendar/core": "^5.11.3",
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/interaction": "^5.11.3",
+    "@fullcalendar/vue3": "^5.11.2",
     "@mdi/font": "^7.0.96",
     "@syncfusion/ej2-vue-progressbar": "^20.3.47",
     "core-js": "^3.8.3",

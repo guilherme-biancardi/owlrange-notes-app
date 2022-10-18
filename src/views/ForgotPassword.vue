@@ -9,10 +9,14 @@
         </div>
         <p>{{ content?.text }}</p>
       </div>
-      <button v-if="state.isSent" @click="backButton">
-        <IconComponent :icon="'mdi-arrow-left'" :size="22"></IconComponent>
-        <p>Voltar</p>
-      </button>
+      <ButtonComponent
+        v-if="state.isSent"
+        @click="backButton"
+        :icon="'mdi-arrow-left'"
+        :text="'voltar'"
+        :borderRadius="24"
+      >
+      </ButtonComponent>
       <FormLoginComponent
         v-else
         :buttonText="'Enviar'"
@@ -28,14 +32,15 @@ import FormLoginComponent from "@/components/login/FormLoginComponent.vue";
 import { computed, reactive } from "vue";
 import IconComponent from "@/components/utilities/IconComponent.vue";
 import { useRouter } from "vue-router";
+import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
 
-const router = useRouter()
+const router = useRouter();
 
 const content = computed(() => state.content[state.isSent]);
 
-const sentEmailForgotPassword = () => state.isSent = true
+const sentEmailForgotPassword = () => (state.isSent = true);
 
-const backButton = () => router.push('/sign-in')
+const backButton = () => router.push("/sign-in");
 
 const state = reactive({
   isSent: false,
@@ -59,8 +64,6 @@ const state = reactive({
     },
   ],
 });
-
-
 </script>
 
 <style scoped>
