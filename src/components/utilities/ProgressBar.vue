@@ -1,7 +1,7 @@
 <template>
-  <div class="progress" :style="`--size: ${size}px`">
+  <div class="progress" :style="`--size: ${size}px; --font-size: ${textSize}em;`">
     <div class="progress-text">
-      <p>{{ value }}%</p>
+      <p>{{ parseInt(value) }}%</p>
       <p v-if="text">{{ text }}</p>
     </div>
     <CircleProgress
@@ -9,6 +9,8 @@
       :viewport="true"
       :size="size"
       :fill-color="'#0007ae'"
+      :border-width="border || 15"
+      :border-bg-width="border || 15"
     ></CircleProgress>
   </div>
 </template>
@@ -22,6 +24,8 @@ const props = defineProps({
   progressCount: Number,
   size: Number,
   text: String,
+  border: Number,
+  textSize: Number
 });
 
 const value = computed(() => (props.progressCount / props.max) * 100)
@@ -33,6 +37,7 @@ const value = computed(() => (props.progressCount / props.max) * 100)
 .progress {
   position: relative;
   --size: 0;
+  --font-size: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,7 +52,7 @@ const value = computed(() => (props.progressCount / props.max) * 100)
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.4em;
+  font-size: var(--font-size);
   text-transform: capitalize;
   row-gap: 4px;
 }
