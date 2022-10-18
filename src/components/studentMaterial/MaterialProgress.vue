@@ -15,7 +15,6 @@
 <script setup>
 import MaterialsComponentProgress from './materialProgress/MaterialsComponentProgress.vue';
 
-
 const props = defineProps({
   folders: Array,
 });
