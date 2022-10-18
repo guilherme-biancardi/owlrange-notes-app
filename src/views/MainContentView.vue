@@ -1,7 +1,7 @@
 <template>
     <MenuComponent></MenuComponent>
     <main>
-      <RouterView v-slot="{ Component }" name="main" class="teste">
+      <RouterView v-slot="{ Component }" name="main">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
         </transition>
@@ -14,16 +14,16 @@ import MenuComponent from "@/components/MenuComponent.vue";
 </script>
 
 <style scoped>
-
 main {
   width: calc(100% - 240px);
+  min-height: 100vh;
   margin-left: 240px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   overflow: auto;
   overflow-y: overlay;
-  padding: 32px;
+  padding: 28px;
 }
 
 .fade-enter-active,
