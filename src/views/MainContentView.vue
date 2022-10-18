@@ -23,7 +23,7 @@ main {
   align-items: center;
   overflow: auto;
   overflow-y: overlay;
-  padding: 28px;
+  padding: 20px 28px;
 }
 
 .fade-enter-active,

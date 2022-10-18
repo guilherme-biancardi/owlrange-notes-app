@@ -35,10 +35,11 @@
       </div>
     </div>
 
-    <div class="folders">
+    <div class="folders" v-if="searchFolders.length">
       <h3>Ou encontre nas pastas:</h3>
       <MaterialProgress :folders="searchFolders"></MaterialProgress>
     </div>
+    <NotFoldersComponent v-else></NotFoldersComponent>
   </div>
 </template>
 
@@ -48,6 +49,7 @@ import MaterialProgress from "@/components/studentMaterial/MaterialProgress.vue"
 import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
 import { computed, reactive } from "vue";
 import { useRouter } from "vue-router";
+import NotFoldersComponent from "@/components/studentMaterial/NotFoldersComponent.vue";
 
 const router = useRouter()
 
