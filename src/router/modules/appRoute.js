@@ -1,6 +1,7 @@
 import { pinia } from "@/store/index.js";
 import { useUserStore } from "@/store/userStore.js";
 import { createRoute } from "./createRoute.js";
+import { addGoal } from "./goalsRoutes.js";
 import { studentArea, goalsSchedule, studentMaterial, studentPerfil, studentSetting } from "./mainRoutes.js";
 import { addMaterial } from "./materialRoutes.js";
 
@@ -15,7 +16,8 @@ export const appRoute = createRoute('app', import('../../views/MainContentView.v
         studentMaterial,
         studentPerfil,
         studentSetting,
-        addMaterial
+        addMaterial,
+        addGoal
     ],
     beforeEnter: (to, from, next) => !userStore.getLoggedIn ? next({ path: '/' }) : next(),
 })

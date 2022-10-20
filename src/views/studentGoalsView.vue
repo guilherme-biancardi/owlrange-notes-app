@@ -2,16 +2,17 @@
   <div class="cronogram">
     <div class="cronogram-header">
       <h1>Cronograma de Metas</h1>
-      <button class="btn-goals">
-        <IconComponent :icon="'mdi-plus'" :size="24"></IconComponent>
-        <p>adicionar meta</p>
-      </button>
+      <ButtonComponent
+        :icon="'mdi-plus'"
+        :text="'adicionar meta'"
+        @click="addGoal"
+      ></ButtonComponent>
     </div>
     <CalendarComponent
       @setDayEvents="setDayEvents"
       :events="[
         { title: 'teste', date: '19/10/2022', color: 'purple' },
-        { title: 'teste', date: '19/10/2022', color: 'orange' },
+        { title: 'teste', date: '20/10/2022', color: 'orange' },
         { title: 'teste', date: '21/10/2022', color: 'orange' },
         { title: 'teste', date: '31/12/2022', color: 'purple' },
       ]"
@@ -26,10 +27,13 @@
 </template>
 
 <script setup>
-import IconComponent from "@/components/utilities/IconComponent.vue";
 import CalendarComponent from "@/components/studentGoals/CalendarComponent.vue";
 import EventsModal from "@/components/studentGoals/EventsModal.vue";
 import { reactive } from "vue";
+import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter()
 
 const state = reactive({
   dayEvents: {
@@ -43,6 +47,8 @@ const setDayEvents = (dayEvents) => {
   state.dayEvents = dayEvents;
   state.eventsModalVisibility = true;
 };
+
+const addGoal = () => router.push('add-goal')
 </script>
 
 <style scoped>
@@ -61,19 +67,5 @@ const setDayEvents = (dayEvents) => {
 
 .cronogram-header h1 {
   font-size: 1.5em;
-}
-
-.cronogram-header button {
-  display: flex;
-  align-items: center;
-  padding: 6px 12px;
-  background-color: var(--blue);
-  color: white;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 0.9em;
-  column-gap: 6px;
-  border-radius: 4px;
-  cursor: pointer;
 }
 </style>

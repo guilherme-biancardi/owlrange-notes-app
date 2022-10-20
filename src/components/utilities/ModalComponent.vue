@@ -3,13 +3,13 @@
     <div
       class="modal"
       :style="`width: ${width || 'max-content'}px; 
-      height: ${height || 'max-content'};
+      height: ${height || 'max-content'}px;
       background-color: ${background || 'var(--white)'}`"
     >
-      <button @click="emit('close')">
+      <button @click="emit('close')" v-if="closeButton">
         <IconComponent :icon="'mdi-close'" :size="24"></IconComponent>
       </button>
-      <div>
+      <div :class="{'not-margin': !closeButton}">
         <slot></slot>
       </div>
     </div>
@@ -25,12 +25,16 @@ defineProps({
   width: Number,
   height: Number,
   background: String,
+  closeButton: {
+    default: true,
+    type: Boolean
+  }
 });
 </script>
 
 <style scoped>
 .modal-backdrop {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.097);
@@ -48,7 +52,7 @@ defineProps({
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
 }
 
 .modal > button {
@@ -62,5 +66,9 @@ defineProps({
 
 .modal > div{
   margin-top: 12px;
+}
+
+.not-margin {
+  margin: 0 !important;
 }
 </style>

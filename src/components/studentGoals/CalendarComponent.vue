@@ -116,6 +116,7 @@ h2 {
   padding: 20px 28px;
   background-color: var(--white);
   border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
 .days {
@@ -165,7 +166,7 @@ h2 {
 }
 
 .today {
-  background-color: rgba(41, 47, 220, 0.07);
+  background-color: rgba(41, 47, 220, 0.12);
   border-radius: 4px;
 }
 
@@ -218,6 +219,6 @@ h2 {
   transform: scale(1.1);
   z-index: 1;
   border-radius: 12px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
 }
 </style>

@@ -22,6 +22,7 @@
   --text: #474747;
   --blue: #0007ae;
   --blue-medium: #292fdc;
+  --shadow: 0px 2px 10px rgba(0, 0, 0, 0.14);
 }
 
 ul {
