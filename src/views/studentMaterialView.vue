@@ -59,7 +59,7 @@ const state = reactive({
     {
       completedProgress: 0,
       title: "Como treinar costas deitado",
-      color: "aqua",
+      color: "purple",
       dateExpire: "30/12/2022",
       material: [
         {
@@ -86,18 +86,6 @@ const state = reactive({
     },
     {
       completedProgress: 0,
-      title: "Engravidar sem transar (golpe em ricos)",
-      color: "purple",
-      dateExpire: "09/11/2022",
-      material: [
-        {
-          title: "Poderes Administrativos",
-          status: false,
-        }
-      ],
-    },
-    {
-      completedProgress: 0,
       title: "Direito Administrativo",
       color: "aqua",
       dateExpire: "29/10/2022",
@@ -107,19 +95,7 @@ const state = reactive({
           status: true,
         }
       ],
-    },
-    {
-      completedProgress: 0,
-      title: "Direito Machistas",
-      color: "yellow",
-      dateExpire: "29/12/2024",
-      material: [
-        {
-          title: "Poderes Administrativos",
-          status: true,
-        }
-      ],
-    },
+    }
   ],
 });
 
