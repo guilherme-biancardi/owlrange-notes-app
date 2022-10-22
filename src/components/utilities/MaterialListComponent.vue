@@ -26,7 +26,18 @@
 
     <div class="folders" v-if="searchFolders.length">
       <h3>Ou encontre nas pastas:</h3>
-      <MaterialProgress :folders="searchFolders"></MaterialProgress>
+      <ul class="material-list">
+        <MaterialsComponentProgress
+          v-for="(folder, index) in searchFolders"
+          :key="index"
+          :title="folder.title"
+          :date-expire="folder.dateExpire"
+          :color="folder.color"
+          :material="folder.material"
+          :progress="countProgress(folder.material)"
+          @showMaterials="emit('showMaterialModal', folder.material)"
+        ></MaterialsComponentProgress>
+      </ul>
     </div>
     <NotFoldersComponent v-else></NotFoldersComponent>
   </div>
@@ -36,11 +47,13 @@
 import { computed, reactive } from "vue";
 import NotFoldersComponent from "../materialList/NotFoldersComponent.vue";
 import IconComponent from "./IconComponent.vue";
-import MaterialProgress from "../materialList/MaterialProgress.vue";
+import MaterialsComponentProgress from "../materialList/materialProgress/MaterialsComponentProgress.vue";
 
 defineProps({
   filterTitle: String,
 });
+
+const emit = defineEmits(['showMaterialModal'])
 
 const state = reactive({
   search: "",
@@ -93,9 +106,20 @@ const searchFolders = computed(() =>
     title.toLowerCase().match(state.search.toLowerCase())
   )
 );
+
+
+const countProgress = (materials) =>
+  materials.filter(({ status }) => status).length;
 </script>
 
 <style scoped>
+.material-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+  width: 100%;
+}
+
 .material-list-content {
   display: flex;
   flex-direction: column;

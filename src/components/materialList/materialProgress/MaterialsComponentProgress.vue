@@ -8,7 +8,9 @@
           {{ material.length > 1 ? "materiais" : "material" }}
         </p>
         -
-        <p class="text-expire">Próximo material expira em {{ getExpireDate(expiredate) }}</p>
+        <p class="text-expire">
+          Próximo material expira em {{ getExpireDate(expiredate) }}
+        </p>
       </div>
     </div>
     <div class="progress">
@@ -20,7 +22,12 @@
         :progressCount="progress"
       ></ProgressBar>
 
-      <IconComponent icon="mdi-chevron-down" :size="32"></IconComponent>
+      <IconComponent
+        :icon="'mdi-palette-swatch'"
+        :size="24"
+        @click="emit('showMaterials')"
+        class="icon"
+      ></IconComponent>
     </div>
   </li>
 </template>
@@ -29,7 +36,7 @@
 import IconComponent from "@/components/utilities/IconComponent.vue";
 import ProgressBar from "@/components/utilities/ProgressBar.vue";
 import { useApp } from "@/js/app";
-import { computed } from "vue";
+import { computed, reactive } from "vue";
 
 const { moment } = useApp();
 
@@ -44,6 +51,8 @@ const getExpireDate = (day) => {
 
   return `${diffDays} dia${diffDays > 1 ? "s" : ""}`;
 };
+
+const emit = defineEmits(["showMaterials"]);
 
 const props = defineProps({
   title: String,
@@ -97,5 +106,9 @@ const props = defineProps({
 
 h2 {
   font-size: 1.15em;
+}
+
+.icon {
+  cursor: pointer;
 }
 </style>

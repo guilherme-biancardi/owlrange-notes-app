@@ -6,7 +6,7 @@ const addGoal = createRoute('add-goal', import('../../views/studentGoals/addGoal
     meta: {
         breadcrumb: [
             { path: 'student-area', name: 'Área do Estudante' },
-            { path: 'student-goals', name: 'Cronograma de Metas' },
+            { path: 'goals-schedule', name: 'Cronograma de Metas' },
             { path: 'add-goal', name: 'Adicionar Meta' }
         ]
     }

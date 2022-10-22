@@ -1,12 +1,17 @@
 <template>
   <div class="card-container">
-    <div class="card" v-for="(card, index) in state.cards" :key="index">
+    <router-link
+      :to="card.routeTo"
+      class="card"
+      v-for="(card, index) in state.cards"
+      :key="index"
+    >
       <img :src="card.image" :alt="card.imageAlt" />
       <div class="card-text">
         <h2>{{ card.title }}</h2>
         <p>{{ card.description }}</p>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -21,6 +26,7 @@ const state = reactive({
       description:
         "Adicione novos materiais de estudo e escolha em que pastas vão ficar",
       imageAlt: "icone adicionar material",
+      routeTo: "add-material",
     },
     {
       image: require("../../assets/acessar-material.svg"),
@@ -28,12 +34,14 @@ const state = reactive({
       description:
         "Veja e edite todos os materiais de estudo adicionados em sua conta",
       imageAlt: "icone acessar material",
+      routeTo: "material-student",
     },
     {
       image: require("../../assets/definir-metas.svg"),
       title: "definir metas",
       description: "Adicione novas metas ao seu cronograma de estudos",
       imageAlt: "icone definir metas",
+      routeTo: "add-goal",
     },
     {
       image: require("../../assets/ver-metas.svg"),
@@ -41,6 +49,7 @@ const state = reactive({
       description:
         "Acesse as metas definidas por dia em seu cronograma e acompanhe o progresso diário",
       imageAlt: "icone ver metas",
+      routeTo: "goals-schedule",
     },
   ],
 });
@@ -77,7 +86,7 @@ const state = reactive({
   border-color: var(--blue-medium);
 }
 
-.card-text{
+.card-text {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +98,7 @@ const state = reactive({
   text-align: center;
   font-size: 1.2em;
   font-weight: 600;
-  color: #747474;
+  color: var(--blue);
   text-transform: uppercase;
   max-width: 10ch;
 }
