@@ -1,20 +1,21 @@
 <template>
   <header>
     <div>
-      <div
+      <RouterLink
+        :to="location.path"
         class="breadcrumb"
-        v-for="(location, index) in locations"
+        v-for="(location, index) in breadcrumb"
         :key="index"
       >
-        <p>{{ location }}</p>
+        <p>{{ location.name }}</p>
         <IconComponent
           :icon="'mdi-chevron-right'"
           :size="20"
-          v-if="index !== locations.length - 1"
+          v-if="index !== breadcrumb.length - 1"
         ></IconComponent>
-      </div>
+      </RouterLink>
     </div>
-    <button @click="router.back()">
+    <button @click="router.back">
       <IconComponent :icon="'mdi-arrow-left-top'" :size="20"></IconComponent>
       <p>voltar</p>
     </button>
@@ -22,14 +23,14 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
+import { computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import IconComponent from "./IconComponent.vue";
 
 const router = useRouter();
+const route = useRoute();
 
-defineProps({
-  locations: Array,
-});
+const breadcrumb = computed(() => route.meta.breadcrumb);
 </script>
 
 <style scoped>
@@ -56,5 +57,13 @@ header > div,
   display: flex;
   align-items: center;
   column-gap: 2px;
+}
+
+.breadcrumb{
+  color: var(--text);
+}
+
+.breadcrumb:hover p{
+  text-decoration: underline;
 }
 </style>

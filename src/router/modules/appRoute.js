@@ -8,7 +8,6 @@ import { addMaterial } from "./materialRoutes.js";
 const userStore = useUserStore(pinia)
 
 export const appRoute = createRoute('app', import('../../views/MainContentView.vue'), 'app', {
-    name: 'teste',
     redirect: 'app/student-area',
     children: [
         studentArea,

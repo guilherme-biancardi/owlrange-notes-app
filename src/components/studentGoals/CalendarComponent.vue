@@ -112,7 +112,7 @@ h2 {
   flex-direction: column;
   row-gap: 16px;
   width: 100%;
-  min-height: 510px;
+  min-height: 450px;
   padding: 20px 28px;
   background-color: var(--white);
   border-radius: 12px;
@@ -131,7 +131,7 @@ h2 {
 .day {
   position: relative;
   padding: 8px;
-  height: 83px;
+  height: 75px;
   background-color: #fbfbfb;
   display: flex;
   align-items: center;

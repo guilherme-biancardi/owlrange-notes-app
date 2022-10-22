@@ -1,5 +1,7 @@
 <template>
   <div class="student-material">
+    <BreadcrumbComponent></BreadcrumbComponent>
+
     <h2>Material de estudo</h2>
 
     <div class="add-material">
@@ -20,6 +22,7 @@
 import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
 import { useRouter } from "vue-router";
 import MaterialListComponent from "@/components/utilities/MaterialListComponent.vue";
+import BreadcrumbComponent from "@/components/utilities/BreadcrumbComponent.vue";
 
 const router = useRouter();
 
@@ -32,11 +35,10 @@ h3 {
 }
 
 .student-material {
-  padding: 0px 28px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 24px;
+  row-gap: 20px;
 }
 
 .add-material {

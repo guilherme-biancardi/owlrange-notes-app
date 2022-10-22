@@ -1,5 +1,6 @@
 <template>
   <div class="cronogram">
+    <BreadcrumbComponent></BreadcrumbComponent>
     <div class="cronogram-header">
       <h1>Cronograma de Metas</h1>
       <ButtonComponent
@@ -32,6 +33,7 @@ import EventsModal from "@/components/studentGoals/EventsModal.vue";
 import { reactive } from "vue";
 import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
 import { useRouter } from "vue-router";
+import BreadcrumbComponent from "@/components/utilities/BreadcrumbComponent.vue";
 
 const router = useRouter()
 
@@ -55,7 +57,7 @@ const addGoal = () => router.push('add-goal')
 .cronogram {
   display: flex;
   flex-direction: column;
-  row-gap: 24px;
+  row-gap: 20px;
   width: 100%;
 }
 
