@@ -32,10 +32,10 @@ import CalendarComponent from "@/components/studentGoals/CalendarComponent.vue";
 import EventsModal from "@/components/studentGoals/EventsModal.vue";
 import { reactive } from "vue";
 import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
-import { useRouter } from "vue-router";
 import BreadcrumbComponent from "@/components/utilities/BreadcrumbComponent.vue";
+import { useApp } from "@/js/app";
 
-const router = useRouter()
+const { router } = useApp();
 
 const state = reactive({
   dayEvents: {
@@ -50,7 +50,7 @@ const setDayEvents = (dayEvents) => {
   state.eventsModalVisibility = true;
 };
 
-const addGoal = () => router.push('add-goal')
+const addGoal = () => router.push("add-goal");
 </script>
 
 <style scoped>

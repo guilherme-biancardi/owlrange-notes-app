@@ -14,18 +14,16 @@
     <span>{{ getDaystoExpire() }}</span>
   </li>
 </template>
- 
+
 <script setup>
 import IconComponent from "@/components/utilities/IconComponent.vue";
 import { useApp } from "@/js/app";
 import { computed } from "vue";
 
 const { moment } = useApp();
- 
+
 const date = computed(() => moment().startOf("day"));
-const expireDate = computed(() =>
-  moment(props.dateExpire.split("/").reverse().join(""))
-);
+const expireDate = computed(() => moment(props.dateExpire, "DDMMYYYY"));
 
 const getDaystoExpire = () => {
   const daystoExpire = expireDate.value.diff(date.value, "days");
@@ -40,15 +38,15 @@ const props = defineProps({
   icon: String,
   dateExpire: String,
   color: String,
-  size: Number
+  size: Number,
 });
 </script>
 
 <style scoped>
 * {
   --orange: #ff6b00;
-  --aqua: #00E5CA;
-  --purple: #E500C0;
+  --aqua: #00e5ca;
+  --purple: #e500c0;
   --yellow: #f1c40f;
 }
 
@@ -59,18 +57,18 @@ const props = defineProps({
   border-radius: 16px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.14);
   border-left: 18px solid;
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-span{
-    padding: 4px 14px;
-    background-color: var(--blue);
-    color: white;
-    border-radius: 12px;
-    font-size: 0.8em;
-    font-weight: 500;
+span {
+  padding: 4px 14px;
+  background-color: var(--blue);
+  color: white;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
 }
 
 .material-item {

@@ -57,16 +57,12 @@ import MaterialListComponent from "@/components/utilities/MaterialListComponent.
 import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
 import { computed, reactive, onMounted } from "vue";
 import { useApp } from "@/js/app";
-import { useRoute, useRouter } from "vue-router";
 import AddedSucessComponent from "@/components/utilities/AddedSucessComponent.vue";
 import Datepicker from "@vuepic/vue-datepicker";
 
-const { moment } = useApp();
+const { moment, router } = useApp();
 
 const currentDate = computed(() => moment());
-
-const router = useRouter();
-const route = useRoute()
 
 const addGoal = () => {
   state.addedGoalVisibility = true;

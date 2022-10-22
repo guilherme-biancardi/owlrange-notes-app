@@ -23,12 +23,11 @@
 </template>
 
 <script setup>
+import { useApp } from "@/js/app";
 import { computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
 import IconComponent from "./IconComponent.vue";
 
-const router = useRouter();
-const route = useRoute();
+const { router, route } = useApp();
 
 const breadcrumb = computed(() => route.meta.breadcrumb);
 </script>
@@ -59,11 +58,11 @@ header > div,
   column-gap: 2px;
 }
 
-.breadcrumb{
+.breadcrumb {
   color: var(--text);
 }
 
-.breadcrumb:hover p{
+.breadcrumb:hover p {
   text-decoration: underline;
 }
 </style>

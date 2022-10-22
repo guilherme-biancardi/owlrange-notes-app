@@ -8,10 +8,10 @@
 
 <script setup>
 import { reactive } from "vue";
-import { useRouter } from "vue-router";
 import FormLoginComponent from "@/components/login/FormLoginComponent.vue";
+import { useApp } from "@/js/app";
 
-const router = useRouter();
+const { router } = useApp();
 
 const state = reactive({
   inputs: [

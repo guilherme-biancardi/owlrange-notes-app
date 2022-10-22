@@ -36,14 +36,14 @@
 import IconComponent from "@/components/utilities/IconComponent.vue";
 import ProgressBar from "@/components/utilities/ProgressBar.vue";
 import { useApp } from "@/js/app";
-import { computed, reactive } from "vue";
+import { computed } from "vue";
 
 const { moment } = useApp();
 
 const date = computed(() => moment().startOf("day"));
 
 const expiredate = computed(() =>
-  moment(props.dateExpire.split("/").reverse().join(""))
+  moment(props.dateExpire, 'DDMMYYYY')
 );
 
 const getExpireDate = (day) => {

@@ -41,7 +41,7 @@ const state = reactive({
     {
       icon: "mdi-notebook-edit-outline",
       route: "material-student",
-      text: "Material do Estudante",
+      text: "Material de Estudo",
     },
     {
       icon: "mdi-account-outline",

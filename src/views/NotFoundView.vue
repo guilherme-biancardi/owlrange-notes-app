@@ -8,10 +8,20 @@
       src="../assets/not-found.svg"
       alt="pessoa com deficiência visual atravessando uma rua"
     />
+    <ButtonComponent
+      @click="router.push('/app/student-area')"
+      text="voltar"
+      icon="mdi-arrow-u-left-top"
+      :borderRadius="24"
+    ></ButtonComponent>
   </div>
 </template>
 
 <script setup>
+import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
+import { useApp } from "@/js/app";
+
+const { router } = useApp();
 </script>
 
 <style scoped>
@@ -27,6 +37,7 @@
 .not-found {
   width: 100%;
   height: 100vh;
+  background-color: var(--white);
 }
 
 .not-found > div {
@@ -34,16 +45,18 @@
 }
 
 .not-found img {
-  max-width: 550px;
+  max-width: 325px;
   object-fit: cover;
   object-position: center;
 }
 
-h1{
-    color: var(--blue);
+h1 {
+  color: var(--blue);
+  font-size: 1.8em;
 }
 
-p{
-    font-size: 1.15em;
+p {
+  font-size: 1.15em;
+  color: #747474;
 }
 </style>
