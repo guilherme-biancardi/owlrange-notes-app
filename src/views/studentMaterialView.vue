@@ -13,8 +13,17 @@
       ></ButtonComponent>
     </div>
 
-    <MaterialListComponent :filterTitle="'Acessar material:'">
+    <MaterialListComponent
+      :filterTitle="'Acessar material:'"
+      @showMaterialModal="showMaterialModal"
+    >
     </MaterialListComponent>
+
+    <MaterialModal
+      v-if="state.showMaterialVisibility"
+      @close="state.showMaterialVisibility = false"
+      :materials="state.materials"
+    ></MaterialModal>
   </div>
 </template>
 
@@ -23,10 +32,22 @@ import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
 import { useRouter } from "vue-router";
 import MaterialListComponent from "@/components/utilities/MaterialListComponent.vue";
 import BreadcrumbComponent from "@/components/utilities/BreadcrumbComponent.vue";
+import MaterialModal from "@/components/studentMaterial/MaterialModal.vue";
+import { reactive } from "vue";
 
 const router = useRouter();
 
 const addMaterial = () => router.push("add-material");
+
+const state = reactive({
+  showMaterialVisibility: false,
+  materials: [],
+});
+
+const showMaterialModal = (materials) => {
+  state.showMaterialVisibility = true;
+  state.materials = materials
+};
 </script>
 
 <style scoped>
