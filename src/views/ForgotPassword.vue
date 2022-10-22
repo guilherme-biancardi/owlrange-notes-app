@@ -92,7 +92,7 @@ img {
   padding: 20px;
   background-color: var(--white);
   border-radius: 20px;
-  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
   flex-direction: column;
   row-gap: 24px;
 }

@@ -1,9 +1,15 @@
 <template>
   <div>
+    <BreadcrumbComponent></BreadcrumbComponent>
     <h1>Configurações</h1>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import BreadcrumbComponent from '@/components/utilities/BreadcrumbComponent.vue';</script>
 
-<style scoped></style>
+<style scoped>
+div{
+  width: 100%;
+}
+</style>

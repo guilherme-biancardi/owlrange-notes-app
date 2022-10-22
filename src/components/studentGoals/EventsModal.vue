@@ -74,7 +74,7 @@ h1::first-letter {
 
 .event-list li{
     background-color: var(--white);
-    box-shadow: 0px 2px 10px rgb(0, 0, 0, 0.08);
+    box-shadow: var(--shadow);
     padding: 10px 16px;
     border-radius: 10px;
     display: flex;
