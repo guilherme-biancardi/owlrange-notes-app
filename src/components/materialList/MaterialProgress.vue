@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import MaterialsComponentProgress from './materialProgress/MaterialsComponentProgress.vue';
+import MaterialsComponentProgress from './materialProgress/MaterialsComponentProgress';
 
 const props = defineProps({
   folders: Array,
