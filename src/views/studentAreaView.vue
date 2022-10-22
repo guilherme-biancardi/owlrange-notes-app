@@ -16,7 +16,7 @@ import { reactive, markRaw} from "vue";
 const state = reactive({
   articles: [
     {
-      title: "O que vc deseja fazer?",
+      title: "O que você deseja fazer?",
       component: markRaw(CardsMenu),
     },
     {

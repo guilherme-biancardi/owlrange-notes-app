@@ -20,7 +20,9 @@
         :progressCount="progress"
       ></ProgressBar>
 
-      <IconComponent icon="mdi-chevron-down" :size="32"></IconComponent>
+      <IconComponent icon="mdi-chevron-down" :size="32">      
+      </IconComponent>
+    
     </div>
   </li>
 </template>
