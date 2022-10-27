@@ -13,11 +13,11 @@
 <script setup>
 import { reactive } from "vue";
 import { useUserStore } from "@/store/userStore";
-import { useRouter } from "vue-router";
 import FormLoginComponent from "@/components/login/FormLoginComponent.vue";
+import { useApp } from "@/js/app";
 
 const userStore = useUserStore();
-const router = useRouter();
+const { router } = useApp();
 
 const state = reactive({
   inputs: [
