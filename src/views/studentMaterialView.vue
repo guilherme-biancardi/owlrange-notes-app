@@ -29,13 +29,13 @@
 
 <script setup>
 import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
-import { useRouter } from "vue-router";
 import MaterialListComponent from "@/components/utilities/MaterialListComponent.vue";
 import BreadcrumbComponent from "@/components/utilities/BreadcrumbComponent.vue";
 import MaterialModal from "@/components/studentMaterial/MaterialModal.vue";
 import { reactive } from "vue";
+import { useApp } from "@/js/app";
 
-const router = useRouter();
+const { router } = useApp();
 
 const addMaterial = () => router.push("add-material");
 
@@ -46,7 +46,7 @@ const state = reactive({
 
 const showMaterialModal = (materials) => {
   state.showMaterialVisibility = true;
-  state.materials = materials
+  state.materials = materials;
 };
 </script>
 

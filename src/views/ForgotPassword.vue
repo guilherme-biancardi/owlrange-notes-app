@@ -31,10 +31,10 @@
 import FormLoginComponent from "@/components/login/FormLoginComponent.vue";
 import { computed, reactive } from "vue";
 import IconComponent from "@/components/utilities/IconComponent.vue";
-import { useRouter } from "vue-router";
 import ButtonComponent from "@/components/utilities/ButtonComponent.vue";
+import { useApp } from "@/js/app";
 
-const router = useRouter();
+const { router } = useApp();
 
 const content = computed(() => state.content[state.isSent]);
 

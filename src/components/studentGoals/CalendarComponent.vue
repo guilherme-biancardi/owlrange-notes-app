@@ -120,6 +120,7 @@ h2 {
 }
 
 .days {
+  width: 100%;
   display: grid;
   text-align: center;
   grid-template-columns: repeat(7, 1fr);
@@ -130,8 +131,9 @@ h2 {
 
 .day {
   position: relative;
+  width: 100%;
   padding: 8px;
-  height: 75px;
+  height: 76px;
   background-color: #fbfbfb;
   display: flex;
   align-items: center;
